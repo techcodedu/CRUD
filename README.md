@@ -70,3 +70,14 @@
      ```
 
 This should set up the project on your local machine.
+
+## Accessing the Application:
+
+1. **Access the Server**:
+   - After running the `rails s` command, the server will start.
+   - You will see an IP address in the terminal (usually `http://127.0.0.1:3000` or `localhost:3000`).
+   - Copy this IP address and paste it into your web browser's URL bar.
+   - Press `Enter` to access the application.
+
+You should now be able to see and interact with the project in your web browser.
+
