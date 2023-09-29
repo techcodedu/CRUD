@@ -1,0 +1,60 @@
+<%= form_with(model: @course, local: true) do |f| %>
+  <!-- Display any error messages -->
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <ul>
+        <% @course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-header text-center">
+            <h1 class="card-title">
+                <%= @course.new_record? ? 'New Course' : 'Edit Course' %>
+            </h1>
+        </div>
+        <div class="card-body">
+          <!-- Course Title Field -->
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control', placeholder: 'Enter course title' %>
+          </div>
+
+          <!-- Course Category Field -->
+          <div class="form-group">
+            <%= f.label :category %>
+            <%= f.select :category, ['Agriculture and Fishery', 'Automotive', 'Construction', 'Health Care Services', 'Tourism', 'Information and Communication Technology'], {}, {class: 'form-control'} %>
+          </div>
+
+          <!-- Number of Hours Field -->
+          <div class="form-group">
+            <%= f.label :number_of_hours %>
+            <%= f.number_field :number_of_hours, class: 'form-control', min: 0 %>
+          </div>
+
+          <!-- Competencies Outline Field -->
+          <div class="form-group">
+            <%= f.label :competencies_outline %>
+            <%= f.text_area :competencies_outline, class: 'form-control', rows: 5, placeholder: 'Enter competencies outline' %>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-group mt-3">
+            <%= f.submit class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Back Link -->
+      <div class="text-center mt-3">
+        <%= link_to 'Back', courses_path %>
+      </div>
+    </div>
+  </div>
+<% end %>

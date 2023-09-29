@@ -1,0 +1,34 @@
+<!-- views/courses/index.html.erb -->
+<div class="container">
+  <div class="text-center my-4">
+    <%= link_to 'New Course', new_course_path, class: 'btn btn-primary' %>
+  </div>
+  
+  <div class="row">
+    <% if @courses.empty? %>
+      <div class="col-12 d-flex align-items-center justify-content-center" style="height: 300px;">
+        <h1 style="color: lightgray;">No courses to show yet</h1>
+      </div>
+    <% else %>
+      <% @courses.each do |course| %>
+        <div class="col-md-3 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to course.title, course %></h5>
+              <p class="card-text"><%= course.category %></p>
+              <p class="card-text"><%= course.number_of_hours %> Hours</p>
+              <p class="card-text"><%= course.competencies_outline %></p>
+              <!-- Add edit and delete icons below -->
+              <div class="mt-3">
+                <%= link_to edit_course_path(course), class: 'btn btn-sm btn-outline-secondary' do %>
+                  <i class="fas fa-edit"></i> Edit
+                <% end %>
+                <%= button_to '<i class="fas fa-trash"></i> Delete'.html_safe, course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger', form: { style: 'display: inline;' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
