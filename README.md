@@ -80,4 +80,7 @@ This should set up the project on your local machine.
    - Press `Enter` to access the application.
 
 You should now be able to see and interact with the project in your web browser.
+### Result
+![Screenshot](https://github.com/techcodedu/CRUD/blob/main/22.jpg)
+
 
